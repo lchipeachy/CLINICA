@@ -1,20 +1,46 @@
 <?php 
 
 include ("fpdf/fpdf.php");
-require 'coneReporte.php';
+include 'conexion.php';
 $consulta = "SELECT * FROM medico";
 $resultado = $mysqli->query($consulta);
 
 
-$pdf = new FPDF('P','mm','A4');
+class PDF extends FPDF
+{
+    // Cabecera de página
+    function Header()
+    {
+        // Logo
+        $this->Image('doctor.png',10,8,33);
+        // Arial bold 15
+        $this->SetFont('Arial','B',15);
+        // Movernos a la derecha
+        $this->Ln(10);
+        $this->Cell(60);
+        // Título
+        $this->Cell(100,10,'Reporte de Personal Medico',1,0,'C');
+        // Salto de línea
+        $this->Ln(25);
+    }
+
+    // Pie de página
+    function Footer()
+    {
+        // Posición: a 1,5 cm del final
+        $this->SetY(-15);
+        // Arial italic 8
+        $this->SetFont('Arial','I',8);
+        // Número de página
+        $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
+    }
+}
+
+$pdf = new PDF('P','mm','A4');
 $pdf->SetMargins(5, 10 , 10); 
 $pdf->AliasNbPages();
 $pdf->AddPage();
-$pdf->SetFont("Arial", "B",20); 
 
-$pdf->Cell(100 , 10, "Reporte de Personal Medico", 0, 1, "C");
-
-$pdf->Ln(6);
 $pdf->SetFont("Arial", "B", 10);
 
 $pdf->Cell(25 , 5, "DPI", 1, 0, "C");

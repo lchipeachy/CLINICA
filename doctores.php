@@ -1,13 +1,9 @@
 <?php
-include("conexion.php");
-$con = conectar();
-
-$sql ="SELECT * FROM medico";
-$query = mysqli_query($con, $sql);
+    include("conexion.php");
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-GT">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -140,7 +136,7 @@ $query = mysqli_query($con, $sql);
     function ejecutar(){
         $.ajax({
             type:"POST",
-            url:"back.php",
+            url:"tabladoctores.php",
             data: {buscar: buscar},
             success:function(html){
                 $('#tabla_resultado').html(html);

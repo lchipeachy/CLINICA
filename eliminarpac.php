@@ -5,11 +5,11 @@
 
     $id = $_GET['id'];
 
-    $sql = "DELETE FROM medico WHERE ID_Medico = '$id'";
+    $sql = "DELETE FROM paciente WHERE ID_Paciente = '$id'";
     $query = mysqli_query($con, $sql);
 
     if($query){
-        Header("Location: doctores.php"); 
+        Header("Location: pacientes.php"); 
         echo "<script>alert('Datos ingresados correctamente')</script>";
     }else{
         echo "<script>alert('No se obtuvo una respuesta favorable del servidor')</script>";

@@ -12,7 +12,7 @@ $row = mysqli_fetch_array($query);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-GT">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,9 +33,9 @@ $row = mysqli_fetch_array($query);
 
 </head>
 <body>
-    <h2 class="color">Actualizar Datos</h2>
+    <h2 class="color">Actualización de Datos</h2>
     <div class="container mt-5">
-        <form action="updatedoc.php" method="POST">
+        <form action="updatepac.php" method="POST">
             <input type="hidden" name="dpi" value="<?php echo $row['ID_Medico'] ?>">
             <input type="text" class="form-control mb-3" name="nombre" autocomplete="off" value="<?php echo $row['Nombres'] ?>" required>
             <input type="text" class="form-control mb-3" name="apellido" autocomplete="off" value="<?php echo $row['Apellidos'] ?>" required>

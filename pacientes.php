@@ -68,17 +68,17 @@ $query = mysqli_query($con, $sql);
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-2">
-                <form action="guardardoctores.php" method="POST">
+                <form action="guardarpacientes.php" method="POST">
                     <input type="text" class="form-control mb-3" name="dpi" placeholder="Ingrese su DPI" id="dpi" maxlength="13" autocomplete="off" required>
                     <input type="text" class="form-control mb-3" name="nombre" placeholder="Ingrese su Nombre" id="nombre" autocomplete="off" required>
                     <input type="text" class="form-control mb-3" name="apellido" placeholder="Ingrese su Apellido" id="apellido" autocomplete="off" required>
                     <font color="#000000" size="3" face="Arial">Fecha de Nacimiento</font> 
                     <input type="date" class="form-control mb-3" name="fecha" id="fecha" autocomplete="off" value="" required>
-                    <select name="especialidad" id="especialidad" placeholder="Selecciones su Sexo"  class="form-select mb-3" required>
+                    <select name="genero" id="genero" placeholder="Selecciones su Sexo"  class="form-select mb-3" required>
                     <option selected disabled value="">Seleccione su Sexo</option>
-                    <option>Marculino</option>
+                    <option>Masculino</option>
                     <option>Femenino</option>
-                    <input type="text" class="form-control mb-3" name="edad" placeholder="Edad..." id="edad" autocomplete="off" required>
+                    <input type="text" class="form-control mb-3" name="edad" placeholder="Edad" id="edad" autocomplete="off" required>
                     <input type="text" class="form-control mb-3" name="direccion" placeholder="Ingrese su Dirección" id="direccion" autocomplete="off" required>
                     <input type="text" class="form-control mb-3" name="telefono" placeholder="Ingrese su Teléfono" id="telefono" maxlength="8" autocomplete="off" required>               
                     <input type="text" class="form-control mb-3" name="correo" placeholder="Ingrese su Email" id="correo" autocomplete="off" required>
@@ -89,21 +89,17 @@ $query = mysqli_query($con, $sql);
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
-                        <th scope="col">DPI</th>
-                        <th scope="col">Nombres</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Fecha de Nacimiento</th>
-                        <th scope="col">Sexo</th>
-                        <th scope="col">Edad</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Teléfono</th>
-                        <th scope="col">Email</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                            <th scope="col">DPI</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Fecha de Nacimiento</th>
+                            <th scope="col">Sexo</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Teléfono</th>
+                            <th scope="col">Email</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="tabla_resultado"> 
@@ -140,12 +136,11 @@ $query = mysqli_query($con, $sql);
     function ejecutar(){
         $.ajax({
             type:"POST",
-            url:"back.php",
+            url:"tablapacientes.php",
             data: {buscar: buscar},
             success:function(html){
                 $('#tabla_resultado').html(html);
             }
-
         });
     }
 </script>
