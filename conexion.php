@@ -8,7 +8,7 @@
         $user="root";
         $pass="";
 
-        $bd="clinica";
+        $bd="clinical";
 
         $con = mysqli_connect($host,$user,$pass);
         mysqli_select_db($con, $bd);

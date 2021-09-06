@@ -1,3 +1,3 @@
 <?php
-$mysqli=new mysqli("localhost","root","","clinica");
+$mysqli=new mysqli("localhost","root","","clinical");
 ?>
