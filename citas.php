@@ -1,9 +1,15 @@
 <?php
     include("conexion.php");
+    $con = conectar();
+
+    $sqlPacientes ="SELECT * FROM paciente";
+    $queryPacientes = mysqli_query($con, $sqlPacientes);
+    $sqlDoctores ="SELECT * FROM medico";
+    $queryDoctores = mysqli_query($con, $sqlDoctores);
 ?>
 
 <!DOCTYPE html>
-<html lang="es-GT">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,31 +65,35 @@
         </div>
     </nav>
 </div>
-    <h2 class="color">Control Medicos</h2>
+    <h2 class="color">Control Citas</h2>
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-3">
-                <form action="guardardoctores.php" method="POST">
-                    <input type="text" class="form-control mb-3" name="dpi" placeholder="Ingrese su DPI" id="dpi" maxlength="13" autocomplete="off" required>
-                    <input type="text" class="form-control mb-3" name="nombre" placeholder="Ingrese su Nombre" id="nombre" autocomplete="off" required>
-                    <input type="text" class="form-control mb-3" name="apellido" placeholder="Ingrese su Apellido" id="apellido" autocomplete="off" required>
-                    <input type="text" class="form-control mb-3" name="direccion" placeholder="Ingrese su Dirección" id="direccion" autocomplete="off" required>
-                    <input type="text" class="form-control mb-3" name="telefono" placeholder="Ingrese su Teléfono" id="telefono" maxlength="8" autocomplete="off" required>               
-                    <input type="text" class="form-control mb-3" name="correo" placeholder="Ingrese su Email" id="correo" autocomplete="off" required>
-                    <select name="especialidad" id="especialidad" placeholder="Selecciones su Especialidad"  class="form-select mb-3" required>
-                         <option selected disabled value="">Seleccione su Especialidad</option>
-                         <option>Cirugia General</option>
-                         <option>Anestesiologo</option>
-                         <option>Ginecologo / Obstetra</option>
-                         <option>Pediatra</option>
-                         <option>Urologo</option>
-                         <option>Alergologo</option>
-                         <option>Cardiologo</option>
-                         <option>Endocrinologo</option>
-                         <option>Gastroenterologo</option>
-                         <option>Neumologo</option>
-                    </select>   
+            <div class="col-md-2">
+                <form action="guardarpacientes.php" method="POST">
+                    <input type="text" class="form-control mb-3" list="listPac">
+                    <datalist id="listPac">
+                        <?php while($row = mysqli_fetch_array($queryPacientes)){ ?>
+                        <option value="<?=$row['ID_Paciente']; ?>"><?=$row['Nombres'] . ' ' . $row['Apellidos']; ?></option>
+                        <?php } ?>
+                    </datalist>
+                    <input type="text" class="form-control mb-3" list="listDoc">
+                    <datalist id="listDoc">
+                        <?php while($row = mysqli_fetch_array($queryDoctores)){ ?>
+                        <option value="<?=$row['ID_Medico']; ?>"><?=$row['Nombres'] . ' ' . $row['Apellidos']; ?></option>
+                        <?php } ?>
+                    </datalist>
+
+                    <input type="date" class="form-control mb-3" name="fecha" placeholder="Seleccione la fecha" id="fecha" autocomplete="off" required>
+                    <select name="hora" id="hora" placeholder="Seleccione la hora"  class="form-select mb-3" required>
+                    <option selected disabled value="">Seleccione la hora</option>
+                    <option>9:00</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>14:00</option>
+                
                     <input type="submit" class="btn btn-success" value="Guardar"><br><br>
                 </form>
             </div>
@@ -91,22 +101,20 @@
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
-                        <th scope="col">DPI</th>
-                        <th scope="col">Nombres</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Teléfono</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Especialidad</th>
-                        <th></th>
-                        <th></th>
+                            <th scope="col">Medico</th>
+                            <th scope="col">Especialidad</th>
+                            <th scope="col">Paciente</th>
+                            <th scope="col">Fecha de cita</th>
+                            <th scope="col">Hora</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody id="tabla_resultado"> 
                         
                     </tbody>
                 </table>
-                <a href="reportedoc.php" class="btn btn-secondary">Generar Reporte</a>
+                <a href="reportepac.php" class="btn btn-secondary">Generar Reporte</a>
             </div>
             <div>
 
@@ -136,12 +144,11 @@
     function ejecutar(){
         $.ajax({
             type:"POST",
-            url:"tabladoctores.php",
+            url:"tablacitas.php",
             data: {buscar: buscar},
             success:function(html){
                 $('#tabla_resultado').html(html);
             }
-
         });
     }
 </script>

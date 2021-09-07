@@ -53,7 +53,7 @@ $query = mysqli_query($con, $sql);
                 <a class="nav-link" href="doctores.php">Médicos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="consultas.php" tabindex="-1" aria-disabled="true">Consultas</a>
+                <a class="nav-link " href="citas.php" tabindex="-1" aria-disabled="true">Citas</a>
             </li>
             </ul>
         <form class="d-flex">
