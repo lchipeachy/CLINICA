@@ -70,14 +70,14 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-2">
-                <form action="guardarpacientes.php" method="POST">
-                    <input type="text" class="form-control mb-3" list="listPac">
+                <form action="guardarcita.php" method="POST">
+                    <input type="text" class="form-control mb-3" list="listPac" name="ID_Paciente" id="ID_Paciente">
                     <datalist id="listPac">
                         <?php while($row = mysqli_fetch_array($queryPacientes)){ ?>
                         <option value="<?=$row['ID_Paciente']; ?>"><?=$row['Nombres'] . ' ' . $row['Apellidos']; ?></option>
                         <?php } ?>
                     </datalist>
-                    <input type="text" class="form-control mb-3" list="listDoc">
+                    <input type="text" class="form-control mb-3" list="listDoc" name="ID_Medico" id="ID_Medico">
                     <datalist id="listDoc">
                         <?php while($row = mysqli_fetch_array($queryDoctores)){ ?>
                         <option value="<?=$row['ID_Medico']; ?>"><?=$row['Nombres'] . ' ' . $row['Apellidos']; ?></option>

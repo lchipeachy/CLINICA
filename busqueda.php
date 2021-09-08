@@ -8,7 +8,7 @@
 
     if(isset($_POST['productos']))
     {
-        $termino=$mysqli->real_scape_string($_POST['productos']);
+        //$termino=$mysqli->real_scape_string($_POST['productos']);
         $consulta="SELECT * FROM medico WHERE
         Nombres LIKE '%".$termino."%' OR
         Apellidos LIKE '%".$termino."%' OR
