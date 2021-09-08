@@ -20,8 +20,8 @@
             $cadena = $cadena . '<td>' . $row['Fecha'] . '</td>';
             $cadena = $cadena . '<td>' . $row['Hora'] . '</td>';
 
-            $cadena = $cadena . '<td> <a href="actualizardoc.php?id= '. $row['ID_Medico'] . ' " class="btn btn-info">Editar</a></td> ';
-            $cadena = $cadena . '<td> <a href="eliminardoc.php?id= ' . $row['ID_Medico'] . '   " class="btn btn-danger">Eliminar</a></td> ';
+            $cadena = $cadena . '<td> <a href="actualizarcita.php?id= '. $row['ID_Cita'] . ' " class="btn btn-info">Editar</a></td> ';
+            $cadena = $cadena . '<td> <a href="eliminardoc.php?id= ' . $row['ID_Cita'] . '   " class="btn btn-danger">Eliminar</a></td> ';
         $cadena = $cadena . '</tr>';
     }
 

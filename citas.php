@@ -9,7 +9,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-GT">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -92,7 +92,7 @@
                     <option>11:00</option>
                     <option>14:00</option>
                     <option>15:00</option>
-                    <option>14:00</option>
+                    <option>16:00</option>
                 
                     <input type="submit" class="btn btn-success" value="Guardar"><br><br>
                 </form>
