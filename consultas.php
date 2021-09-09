@@ -21,7 +21,7 @@
 </head>
 <body>
 <div>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #076185;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #076185;">
         <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,4 +46,4 @@
         </div>
     </nav>
 </div>
-    <h2 class="color">Control Consultas</h2>
+<h2 class="color">Control Consultas</h2>

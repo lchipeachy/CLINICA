@@ -19,9 +19,9 @@
             $cadena = $cadena . '<td>' . $row['Paciente'] . '</td>';
             $cadena = $cadena . '<td>' . $row['Fecha'] . '</td>';
             $cadena = $cadena . '<td>' . $row['Hora'] . '</td>';
-
+            $cadena = $cadena . '<td> <a href="generarcita.php?id= '. $row['ID_Cita'] . ' " class="btn btn-info">Generar</a></td> ';
             $cadena = $cadena . '<td> <a href="actualizarcita.php?id= '. $row['ID_Cita'] . ' " class="btn btn-info">Editar</a></td> ';
-            $cadena = $cadena . '<td> <a href="eliminardoc.php?id= ' . $row['ID_Cita'] . '   " class="btn btn-danger">Eliminar</a></td> ';
+            $cadena = $cadena . '<td> <a href="eliminarcita.php?id= ' . $row['ID_Cita'] . '   " class="btn btn-danger">Eliminar</a></td> ';
         $cadena = $cadena . '</tr>';
     }
 
