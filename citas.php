@@ -55,7 +55,10 @@
                 <a class="nav-link" href="doctores.php">Médicos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="citas.php" tabindex="-1" aria-disabled="true">Citas</a>
+                <a class="nav-link " href="citas.php" aria-disabled="true">Citas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="consultas.php" aria-disabled="true">Consultas</a>
             </li>
             </ul>
         <form class="d-flex">
@@ -97,7 +100,7 @@
                     <input type="submit" class="btn btn-success" value="Guardar"><br><br>
                 </form>
             </div>
-                <div class="col-md-8">
+                <div class="col-md-10">
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
@@ -106,6 +109,7 @@
                             <th scope="col">Paciente</th>
                             <th scope="col">Fecha de cita</th>
                             <th scope="col">Hora</th>
+                            <th></th>
                             <th></th>
                             <th></th>
                         </tr>
