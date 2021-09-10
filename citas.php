@@ -72,15 +72,44 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-2">
+                <form action="guardarcita.php" method="POST">
+                    <input type="text" class="form-control mb-3" list="listPac" name="ID_Paciente" id="ID_Paciente">
+                    <datalist id="listPac">
+                        <?php while($row = mysqli_fetch_array($queryPacientes)){ ?>
+                        <option value="<?=$row['ID_Paciente']; ?>"><?=$row['Nombres'] . ' ' . $row['Apellidos']; ?></option>
+                        <?php } ?>
+                    </datalist>
+                    <input type="text" class="form-control mb-3" list="listDoc" name="ID_Medico" id="ID_Medico">
+                    <datalist id="listDoc">
+                        <?php while($row = mysqli_fetch_array($queryDoctores)){ ?>
+                        <option value="<?=$row['ID_Medico']; ?>"><?=$row['Nombres'] . ' ' . $row['Apellidos']; ?></option>
+                        <?php } ?>
+                    </datalist>
+
+                    <input type="date" class="form-control mb-3" name="fecha" placeholder="Seleccione la fecha" id="fecha" autocomplete="off" required>
+                    <select name="hora" id="hora" placeholder="Seleccione la hora"  class="form-select mb-3" required>
+                    <option selected disabled value="">Seleccione la hora</option>
+                    <option>9:00</option>
+                    <option>10:00</option>
+                    <option>11:00</option>
+                    <option>14:00</option>
+                    <option>15:00</option>
+                    <option>16:00</option>
+                
+                    <input type="submit" class="btn btn-success" value="Guardar"><br><br>
+                </form>
+            </div>
+                <div class="col-md-10">
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
-                            <th scope="col">Fecha</th>
                             <th scope="col">Medico</th>
+                            <th scope="col">Especialidad</th>
                             <th scope="col">Paciente</th>
-                            <th scope="col">Diagnostico</th>
-                            <th scope="col">Precio</th>
+                            <th scope="col">Fecha de cita</th>
+                            <th scope="col">Hora</th>
+                            <th></th>
                             <th></th>
                             <th></th>
                         </tr>

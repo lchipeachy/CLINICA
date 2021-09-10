@@ -8,7 +8,7 @@
 
     if(isset($_POST['productos']))
     {
-        $termino=$mysqli->real_scape_string($_POST['productos']);
+        //$termino=$mysqli->real_scape_string($_POST['productos']);
         $consulta="SELECT * FROM medico WHERE
         Nombres LIKE '%".$termino."%' OR
         Apellidos LIKE '%".$termino."%' OR
@@ -35,12 +35,12 @@
 
         while($fila=$consultaBD->fetch_array(MYSQLI_ASSOC)){
             echo "<tr>
-            <td>" $fila['Nombres']."</td>
-            <td>" $fila['Apellidos']."</td>
-            <td>" $fila['Direccion']."</td>
-            <td>" $fila['Telefono']."</td>
-            <td>" $fila['Email']."</td>
-            <td>" $fila['Especialidad']."</td>
+            <td>". $fila['Nombres']."</td>
+            <td>". $fila['Apellidos']."</td>
+            <td>". $fila['Direccion']."</td>
+            <td>". $fila['Telefono']."</td>
+            <td>". $fila['Email']."</td>
+            <td>". $fila['Especialidad']."</td>
             </tr>";
         }
         echo "</tbody>

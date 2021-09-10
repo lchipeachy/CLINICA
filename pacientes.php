@@ -7,7 +7,7 @@ $query = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-GT">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,7 +53,10 @@ $query = mysqli_query($con, $sql);
                 <a class="nav-link" href="doctores.php">Médicos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="consultas.php" tabindex="-1" aria-disabled="true">Consultas</a>
+                <a class="nav-link " href="citas.php" aria-disabled="true">Citas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="consultas.php" aria-disabled="true">Consultas</a>
             </li>
             </ul>
         <form class="d-flex">
