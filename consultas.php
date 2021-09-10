@@ -54,7 +54,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="doctores.php">Médicos</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item"> 
                 <a class="nav-link " href="citas.php" aria-disabled="true">Citas</a>
             </li>
             <li class="nav-item">
@@ -68,11 +68,11 @@
         </div>
     </nav>
 </div>
-    <h2 class="color">Control Citas</h2>
+    <h2 class="color">Control Consultas</h2>
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <table class="table">
                     <thead class="table-dark">
                         <tr>
@@ -80,8 +80,8 @@
                             <th scope="col">Medico</th>
                             <th scope="col">Paciente</th>
                             <th scope="col">Diagnostico</th>
+                            <th scope="col">Tratamiento</th>
                             <th scope="col">Precio</th>
-                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -89,7 +89,6 @@
                         
                     </tbody>
                 </table>
-                <a href="reportepac.php" class="btn btn-secondary">Generar Reporte</a>
             </div>
             <div>
 
@@ -119,7 +118,7 @@
     function ejecutar(){
         $.ajax({
             type:"POST",
-            url:"tablacitas.php",
+            url:"tablaconsultas.php",
             data: {buscar: buscar},
             success:function(html){
                 $('#tabla_resultado').html(html);

@@ -38,17 +38,49 @@
 
 </head>
 <body>
-    <h2 class="color">Actualización de Datos</h2>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #076185;">
+        <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="index.php">Inicio</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link "  href="pacientes.php">Pacientes</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="doctores.php">Médicos</a>
+            </li>
+            <li class="nav-item"> 
+                <a class="nav-link " href="citas.php" aria-disabled="true">Citas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="consultas.php" aria-disabled="true">Consultas</a>
+            </li>
+            </ul>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" id="buscar" placeholder="Buscar..." aria-label="Search">
+        </form>
+        </div>
+        </div>
+    </nav>
+</div>
+
+    <h2 class="color">Generar Consulta</h2>
     <div class="container mt-5">
         <form action="guardarconsulta.php" method="POST">
-            <input type="hidden" name="ID_Paciente" value="<?php echo $row['ID_Paciente'] ?>">
-            <input type="hidden" name="ID_Medico" value="<?php echo $row['ID_Medico'] ?>">
-            <input type="hidden" name="Fecha" value="<?php echo $row['Fecha'] ?>">
+            <input type="hidden" name="ID_Paciente" id="ID_Paciente" value="<?php echo $row['ID_Paciente'] ?>">
+            <input type="hidden" name="ID_Medico" id="ID_Medico" value="<?php echo $row['ID_Medico'] ?>">
+            <input type="hidden" name="Fecha" id="Fecha" value="<?php echo $row['Fecha'] ?>">
 
             <textarea type="hidden" class="form-control mb-3" name="Diagnostico" placeholder="Ingrese el diagnostico" id="Diagnostico" ></textarea>
 
             <textarea type="hidden" class="form-control mb-3" name="Tratamiento" placeholder="Ingrese el Tratamiento" id="Tratamiento" ></textarea>
         
+            <input type="text" class="form-control mb-3" id="Precio" name="Precio" placeholder="Q0.00">
+
             <input type="submit" class="btn btn-success" value="Guardar"><br><br>
         </form>
     </div>

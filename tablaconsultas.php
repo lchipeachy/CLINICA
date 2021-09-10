@@ -13,17 +13,14 @@
     $cadena = "";
 
     while($row = mysqli_fetch_array($query)){
-            $cadena = $cadena . '<tr>';
-            $cadena = $cadena . '<td>' . $row['ID_Consulta'] . '</td>';
-            $cadena = $cadena . '<td>' . $row['Medico'] . '</td>';
-            $cadena = $cadena . '<td>' . $row['Especialidad'] . '</td>';
-            $cadena = $cadena . '<td>' . $row['Paciente'] . '</td>';
-            $cadena = $cadena . '<td>' . $row['Telefono'] . '</td>';
-            $cadena = $cadena . '<td>' . $row['Email'] . '</td>';
-            $cadena = $cadena . '<td>' . $row['Especialidad'] . '</td>';
-
-            $cadena = $cadena . '<td> <a href="actualizardoc.php?id= '. $row['ID_Medico'] . ' " class="btn btn-info">Editar</a></td> ';
-            $cadena = $cadena . '<td> <a href="eliminardoc.php?id= ' . $row['ID_Medico'] . '   " class="btn btn-danger">Eliminar</a></td> ';
+        $cadena = $cadena . '<tr>';
+        $cadena = $cadena . '<td>' . $row['Fecha'] . '</td>';
+        $cadena = $cadena . '<td>' . $row['Medico'] . '</td>';
+        $cadena = $cadena . '<td>' . $row['Paciente'] . '</td>';
+        $cadena = $cadena . '<td>' . $row['Diagnostico'] . '</td>';
+        $cadena = $cadena . '<td>' . $row['Tratamiento'] . '</td>';
+        $cadena = $cadena . '<td>' . $row['Precio'] . '</td>';
+        $cadena = $cadena . '<td> <a href="reporteconsulta.php?id= '. $row['ID_Consulta'] . ' " class="btn btn-success">Imprimir</a></td> ';
         $cadena = $cadena . '</tr>';
     }
 
