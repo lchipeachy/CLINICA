@@ -1,6 +1,6 @@
 <?php 
 
-    $mysqli=new mysqli("localhost","root","","clinical");   
+    $mysqli=new mysqli("localhost","root","","clinica");   
 
     function conectar()
     {
@@ -8,7 +8,7 @@
         $user="root";
         $pass="";
 
-        $bd="clinical";
+        $bd="clinica";
 
         $con = mysqli_connect($host,$user,$pass);
         mysqli_select_db($con, $bd);
